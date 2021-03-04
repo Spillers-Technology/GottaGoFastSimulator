@@ -1,6 +1,6 @@
 version : '3.7'
 services: 
-  GGFS:
+  ggfs:
       build:
         context: ./
         dockerfile: Dockerfile
