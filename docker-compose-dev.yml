@@ -1,0 +1,11 @@
+version : '3.7'
+services: 
+  ggfsim:
+      build:
+        context: ./
+        dockerfile: Dockerfile-dev
+      restart: always
+      volumes:
+        - ./build:/usr/share/nginx/html/
+      ports:
+        - "3000:80"
