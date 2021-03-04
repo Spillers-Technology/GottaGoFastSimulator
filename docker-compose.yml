@@ -1,0 +1,15 @@
+version : '3.7'
+services: 
+  GGFS:
+      build:
+        context: ./
+        dockerfile: Dockerfile
+      restart: always
+      environment:
+        - VIRTUAL_HOST=game.spillerstech.xyz
+        - LETSENCRYPT_HOST=game.spillerstech.xyz
+      networks:
+        nginx-proxy_default:
+networks:
+  nginx-proxy_default:
+    external: true
