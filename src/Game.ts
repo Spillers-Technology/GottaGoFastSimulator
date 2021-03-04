@@ -3,6 +3,7 @@ import { Engine,Color,Actor,CollisionType } from "excalibur";
 class GGFGameInstance {
     game: Engine;
     constructor() {
+        console.log("starting engine....");
         this.game = new Engine({
             width: 640,
             height: 480,

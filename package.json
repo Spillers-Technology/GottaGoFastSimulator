@@ -1,0 +1,20 @@
+{
+  "name": "ggfsim",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "tsc -w & nodemon -w build/ build/index.js",
+    "docker-dev": "tsc -w & docker-compose --file docker-compose-dev.yml up"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@types/node": "^14.14.31",
+    "excalibur": "^0.24.5",
+    "http": "^0.0.1-security",
+    "nodemon": "^2.0.7",
+    "snowpack": "^3.0.13"
+  }
+}

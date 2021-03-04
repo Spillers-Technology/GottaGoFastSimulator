@@ -8,4 +8,4 @@ services:
       volumes:
         - ./build:/usr/share/nginx/html/
       ports:
-        - "3000:80"
+        - "3088:80"

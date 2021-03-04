@@ -2,7 +2,7 @@ import { GGFGameInstance } from './Game';
 
 
 function startGame() {
-  const game = new GGFGameInstance;
+  const game = new GGFGameInstance();
   //const gb = document.getElementById("gameBox") as HTMLDivElement;
   //gb.classList.toggle("is-active");
   alert("Loading game...");
