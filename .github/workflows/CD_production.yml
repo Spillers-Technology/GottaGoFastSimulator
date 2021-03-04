@@ -11,4 +11,4 @@ jobs:
         steps:
             - uses: actions/checkout@v2
             - name: Build Container
-              run: docker-compose --file docker-compose.yml up -d --build GGFS
+              run: docker-compose --file docker-compose.yml up -d --build ggfs
