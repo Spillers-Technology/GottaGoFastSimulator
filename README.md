@@ -1,4 +1,4 @@
-# Gotta Go Fast Simulator
+# SpillerMug
 
 A coffee-powered momentum runner: a tiny punk mug in charm-covered clogs.
 Run automatically, earn flow with timed tricks, and grind rails to keep speed.
