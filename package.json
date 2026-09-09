@@ -1,0 +1,14 @@
+{
+  "name": "gottagofastsimulator",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Sonic-style momentum runner. Genesis physics, flow-gated speed, rail grinding.",
+  "type": "module",
+  "license": "MIT",
+  "scripts": {
+    "test": "node tests/run.js",
+    "dev": "node tools/serve.js",
+    "check": "node --check src/js/tune.js && node --check src/js/track.js && node --check src/js/flow.js && node --check src/js/player.js && node --check src/js/input.js && node --check src/js/charms.js && node --check src/js/mascot.js && node --check src/js/render.js && node --check src/js/main.js"
+  },
+  "//": "Dev tooling ONLY. There is no build step and no runtime dependency: the deploy copies src/ verbatim into nginx. Keep it that way."
+}

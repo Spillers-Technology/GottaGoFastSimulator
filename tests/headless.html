@@ -1,0 +1,21 @@
+<!doctype html>
+<meta charset="utf-8">
+<title>ggfs physics harness</title>
+<style>
+  body { background:#0b1220; color:#e8f2ff; font:13px/1.5 ui-monospace,Menlo,Consolas,monospace; padding:20px; }
+  .PASS { color:#7dff9b; } .FAIL { color:#ff5f6d; font-weight:700; } .note { color:#6f92b8; }
+  h1 { font-size:15px; color:#9fd0ff; font-weight:600; }
+</style>
+<h1>gottagofastsimulator — physics harness</h1>
+<pre id="out">running…</pre>
+<script type="module">
+// Same assertions as `npm test`; this page exists for when you want to run
+// them in the actual browser engine the game ships on.
+import { runAll } from './physics.js';
+const { log, pass, fail } = runAll();
+document.getElementById('out').innerHTML = log.map((l) => {
+  const cls = l.startsWith('PASS') ? 'PASS' : l.startsWith('FAIL') ? 'FAIL' : 'note';
+  return `<span class="${cls}">${l.replace(/[<>&]/g, (m) => ({'<':'&lt;','>':'&gt;','&':'&amp;'}[m]))}</span>`;
+}).join('\n') + `\n\n<span class="${fail ? 'FAIL' : 'PASS'}">${pass} passed, ${fail} failed</span>`;
+console.log(log.join('\n'));
+</script>

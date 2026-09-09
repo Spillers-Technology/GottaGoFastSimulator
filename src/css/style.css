@@ -1,0 +1,76 @@
+:root { --rush: 0; }
+* { box-sizing: border-box; }
+html, body { margin: 0; height: 100%; overflow: hidden; background: #0b1220;
+  font: 13px/1.4 ui-monospace, "SF Mono", Menlo, Consolas, monospace; color: #e8f2ff; }
+#game { display: block; width: 100vw; height: 100vh; }
+
+/* Speed vignette. Cheap, and does a surprising amount of the work of
+   making high speed feel dangerous rather than just fast. */
+#rush {
+  position: fixed; inset: 0; pointer-events: none;
+  background: radial-gradient(ellipse at center,
+    transparent 30%,
+    rgba(10,20,40, calc(var(--rush) * 0.55)) 78%,
+    rgba(6,12,28, calc(var(--rush) * 0.8)) 100%);
+  transition: none;
+}
+
+#hud { position: fixed; inset: 0; pointer-events: none; padding: 18px; }
+
+.panelbox { background: rgba(8,16,32,.62); border: 1px solid rgba(120,180,255,.22);
+  border-radius: 10px; padding: 10px 12px; backdrop-filter: blur(6px); }
+
+#topleft { position: absolute; top: 18px; left: 18px; width: 250px; }
+#speedrow { display: flex; align-items: baseline; gap: 8px; }
+#speed { font-size: 34px; font-weight: 700; letter-spacing: -1px; color: #fff; }
+#speedkmh { font-size: 12px; color: #8fb8dd; }
+.lbl { font-size: 10px; letter-spacing: .14em; color: #6f92b8; text-transform: uppercase; }
+
+#flowtrack { height: 9px; background: rgba(255,255,255,.09); border-radius: 5px;
+  overflow: hidden; margin: 6px 0 3px; }
+#flowbar { height: 100%; width: 0%; border-radius: 5px; transition: width .06s linear; }
+#flowmeta { display: flex; justify-content: space-between; font-size: 10px; color: #7fa6c9; }
+
+#state { margin-top: 8px; font-size: 11px; color: #9fd0ff; }
+
+#topright { position: absolute; top: 18px; right: 18px; text-align: right; }
+#score { font-size: 22px; font-weight: 700; }
+#beat { display: inline-block; width: 12px; height: 12px; border-radius: 50%;
+  background: #ff6b35; margin-top: 8px; }
+
+#centre { position: absolute; top: 26%; left: 0; right: 0; text-align: center; }
+#chain { font-size: 26px; font-weight: 700; text-shadow: 0 2px 12px rgba(0,0,0,.7); }
+#events { margin-top: 6px; display: flex; flex-direction: column; align-items: center; gap: 2px; }
+.ev { font-size: 15px; font-weight: 700; text-shadow: 0 2px 10px rgba(0,0,0,.8); }
+.ev.good { color: #7dff9b; }
+.ev.beat { color: #ffd23f; }
+.ev.bad  { color: #ff5f6d; }
+
+#help { position: absolute; bottom: 18px; left: 18px; font-size: 11px;
+  color: #86a8c9; line-height: 1.7; }
+#help b { color: #cfe6ff; }
+
+#fpsbox { position: absolute; bottom: 18px; right: 18px; font-size: 11px; color: #6f92b8; }
+
+/* --- tuning panel ------------------------------------------------------ */
+#panel { position: fixed; top: 0; right: 0; bottom: 0; width: 300px;
+  background: rgba(6,12,26,.93); border-left: 1px solid rgba(120,180,255,.2);
+  padding: 14px; overflow-y: auto; transform: translateX(100%);
+  transition: transform .18s ease; pointer-events: auto; z-index: 10; }
+#panel.open { transform: none; }
+#panel label { display: block; margin-bottom: 9px; font-size: 10px; color: #8fb8dd; }
+#panel label span { letter-spacing: .06em; }
+#panel label b { float: right; color: #ffd23f; font-weight: 600; }
+#panel input[type=range] { width: 100%; margin-top: 3px; accent-color: #35e0ff; }
+#panel button { width: 100%; margin-top: 8px; padding: 7px; cursor: pointer;
+  background: #1c3055; color: #cfe6ff; border: 1px solid rgba(120,180,255,.3);
+  border-radius: 6px; font: inherit; font-size: 11px; }
+#panel button:hover { background: #26406e; }
+
+/* Airtime readout — makes trick selection a decision instead of a guess. */
+#air { margin-bottom: 6px; font-size: 12px; color: #9fd0ff; }
+#air .airf { font-size: 20px; font-weight: 700; color: #fff; }
+#air .fits { display: flex; gap: 6px; justify-content: center; margin-top: 4px; }
+#air .fit { font-size: 10px; padding: 2px 6px; border-radius: 4px; }
+#air .fit.yes { background: rgba(125,255,155,.18); color: #7dff9b; border: 1px solid rgba(125,255,155,.4); }
+#air .fit.no  { background: rgba(255,255,255,.05); color: #5d7a95; }

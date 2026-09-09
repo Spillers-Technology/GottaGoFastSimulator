@@ -1,3 +1,53 @@
-<html>
-    Gotta Go Fast V0.0.1
-</html> 
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Gotta Go Fast Simulator</title>
+<link rel="stylesheet" href="./css/style.css">
+<script type="importmap">
+{ "imports": { "three": "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js" } }
+</script>
+</head>
+<body>
+<canvas id="game"></canvas>
+<div id="rush"></div>
+
+<div id="hud">
+  <div id="topleft" class="panelbox">
+    <div class="lbl">Speed</div>
+    <div id="speedrow"><div id="speed">0.00</div><div id="speedkmh">0 km/h</div></div>
+    <div class="lbl" style="margin-top:8px">Flow</div>
+    <div id="flowtrack"><div id="flowbar"></div></div>
+    <div id="flowmeta"><span>decaying</span><span>cap <b id="cap">6.0</b></span></div>
+    <div id="state">GROUND</div>
+    <div id="charm" style="max-width:240px;margin-top:10px;font-size:12px;color:#ffefd3"></div>
+  </div>
+
+  <div id="topright" class="panelbox">
+    <div class="lbl">Score</div>
+    <div id="score">0</div>
+    <div id="beat"></div>
+  </div>
+
+  <div id="centre">
+    <div id="air"></div>
+    <div id="chain"></div>
+    <div id="events"></div>
+  </div>
+
+  <div id="help">
+    You run forward automatically. <b>S / ↓</b> brake · roll · crouch<br>
+    <b>A D / ← →</b> steer &nbsp; <b>Space</b> jump<br>
+    In air: <b>← →</b> spin &nbsp; <b>↑</b> backflip &nbsp; <b>↓</b> dive<br>
+    On rail: <b>← →</b> transfer &nbsp; <b>Space</b> hop off<br>
+    Crouch + <b>Space</b> spindash &nbsp;·&nbsp; <b>`</b> tuning &nbsp;·&nbsp; <b>R</b> respawn
+  </div>
+
+  <div id="fpsbox"><span id="fps">60</span> fps</div>
+</div>
+
+<div id="panel"></div>
+<script type="module" src="./js/main.js"></script>
+</body>
+</html>
